@@ -15,6 +15,8 @@
 		CCED84F0285965C800E24575 /* OneWayExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84EF285965C800E24575 /* OneWayExampleTests.swift */; };
 		CCED84FA285965C800E24575 /* OneWayExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84F9285965C800E24575 /* OneWayExampleUITests.swift */; };
 		CCED84FC285965C800E24575 /* OneWayExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84FB285965C800E24575 /* OneWayExampleUITestsLaunchTests.swift */; };
+		CCED850A285967D000E24575 /* OneWay in Frameworks */ = {isa = PBXBuildFile; productRef = CCED8509285967D000E24575 /* OneWay */; };
+		CCED850D28596B6300E24575 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CCED850C28596B6300E24575 /* CombineCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCED850D28596B6300E24575 /* CombineCocoa in Frameworks */,
+				CCED850A285967D000E24575 /* OneWay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +144,10 @@
 			dependencies = (
 			);
 			name = OneWayExample;
+			packageProductDependencies = (
+				CCED8509285967D000E24575 /* OneWay */,
+				CCED850C28596B6300E24575 /* CombineCocoa */,
+			);
 			productName = OneWayExample;
 			productReference = CCED84D5285965C700E24575 /* OneWayExample.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +220,10 @@
 				Base,
 			);
 			mainGroup = CCED84CC285965C700E24575;
+			packageReferences = (
+				CCED8508285967D000E24575 /* XCRemoteSwiftPackageReference "OneWay" */,
+				CCED850B28596B6300E24575 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = CCED84D6285965C700E24575 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -586,6 +598,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCED8508285967D000E24575 /* XCRemoteSwiftPackageReference "OneWay" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DevYeom/OneWay.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+		CCED850B28596B6300E24575 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCED8509285967D000E24575 /* OneWay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCED8508285967D000E24575 /* XCRemoteSwiftPackageReference "OneWay" */;
+			productName = OneWay;
+		};
+		CCED850C28596B6300E24575 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCED850B28596B6300E24575 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CCED84CD285965C700E24575 /* Project object */;
 }
