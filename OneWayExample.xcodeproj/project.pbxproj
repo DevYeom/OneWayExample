@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CCED84D9285965C700E24575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84D8285965C700E24575 /* AppDelegate.swift */; };
 		CCED84DB285965C700E24575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84DA285965C700E24575 /* SceneDelegate.swift */; };
-		CCED84DD285965C700E24575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84DC285965C700E24575 /* ViewController.swift */; };
+		CCED84DD285965C700E24575 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84DC285965C700E24575 /* CounterViewController.swift */; };
 		CCED84E2285965C800E24575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCED84E1285965C800E24575 /* Assets.xcassets */; };
 		CCED84E5285965C800E24575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCED84E3285965C800E24575 /* LaunchScreen.storyboard */; };
 		CCED84F0285965C800E24575 /* OneWayExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84EF285965C800E24575 /* OneWayExampleTests.swift */; };
@@ -17,6 +17,8 @@
 		CCED84FC285965C800E24575 /* OneWayExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED84FB285965C800E24575 /* OneWayExampleUITestsLaunchTests.swift */; };
 		CCED850A285967D000E24575 /* OneWay in Frameworks */ = {isa = PBXBuildFile; productRef = CCED8509285967D000E24575 /* OneWay */; };
 		CCED850D28596B6300E24575 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CCED850C28596B6300E24575 /* CombineCocoa */; };
+		CCED850F28596B9E00E24575 /* CounterViewWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED850E28596B9E00E24575 /* CounterViewWay.swift */; };
+		CCED851128596C8600E24575 /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED851028596C8600E24575 /* GlobalState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 		CCED84D5285965C700E24575 /* OneWayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneWayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCED84D8285965C700E24575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCED84DA285965C700E24575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CCED84DC285965C700E24575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCED84DC285965C700E24575 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		CCED84E1285965C800E24575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCED84E4285965C800E24575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCED84E6285965C800E24575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		CCED84F5285965C800E24575 /* OneWayExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneWayExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCED84F9285965C800E24575 /* OneWayExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWayExampleUITests.swift; sourceTree = "<group>"; };
 		CCED84FB285965C800E24575 /* OneWayExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWayExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CCED850E28596B9E00E24575 /* CounterViewWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewWay.swift; sourceTree = "<group>"; };
+		CCED851028596C8600E24575 /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 			children = (
 				CCED84D8285965C700E24575 /* AppDelegate.swift */,
 				CCED84DA285965C700E24575 /* SceneDelegate.swift */,
-				CCED84DC285965C700E24575 /* ViewController.swift */,
+				CCED84DC285965C700E24575 /* CounterViewController.swift */,
+				CCED850E28596B9E00E24575 /* CounterViewWay.swift */,
+				CCED851028596C8600E24575 /* GlobalState.swift */,
 				CCED84E1285965C800E24575 /* Assets.xcassets */,
 				CCED84E3285965C800E24575 /* LaunchScreen.storyboard */,
 				CCED84E6285965C800E24575 /* Info.plist */,
@@ -266,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCED84DD285965C700E24575 /* ViewController.swift in Sources */,
+				CCED84DD285965C700E24575 /* CounterViewController.swift in Sources */,
+				CCED851128596C8600E24575 /* GlobalState.swift in Sources */,
 				CCED84D9285965C700E24575 /* AppDelegate.swift in Sources */,
 				CCED84DB285965C700E24575 /* SceneDelegate.swift in Sources */,
+				CCED850F28596B9E00E24575 /* CounterViewWay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
