@@ -1,6 +1,6 @@
 //
 //  CounterViewController.swift
-//  OneWayExample
+//  Counter
 //
 //  Created by DevYeom on 2022/06/15.
 //

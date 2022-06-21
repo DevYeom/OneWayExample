@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CCED84D5285965C700E24575 /* OneWayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneWayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCED84D5285965C700E24575 /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCED84D8285965C700E24575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCED84DA285965C700E24575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CCED84DC285965C700E24575 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		CCED84CC285965C700E24575 = {
 			isa = PBXGroup;
 			children = (
-				CCED84D7285965C700E24575 /* OneWayExample */,
+				CCED84D7285965C700E24575 /* Counter */,
 				CCED84D6285965C700E24575 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		CCED84D6285965C700E24575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCED84D5285965C700E24575 /* OneWayExample.app */,
+				CCED84D5285965C700E24575 /* Counter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CCED84D7285965C700E24575 /* OneWayExample */ = {
+		CCED84D7285965C700E24575 /* Counter */ = {
 			isa = PBXGroup;
 			children = (
 				CCED84D8285965C700E24575 /* AppDelegate.swift */,
@@ -71,15 +71,15 @@
 				CCED84E3285965C800E24575 /* LaunchScreen.storyboard */,
 				CCED84E6285965C800E24575 /* Info.plist */,
 			);
-			path = OneWayExample;
+			path = Counter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CCED84D4285965C700E24575 /* OneWayExample */ = {
+		CCED84D4285965C700E24575 /* Counter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCED84FF285965C800E24575 /* Build configuration list for PBXNativeTarget "OneWayExample" */;
+			buildConfigurationList = CCED84FF285965C800E24575 /* Build configuration list for PBXNativeTarget "Counter" */;
 			buildPhases = (
 				CCED84D1285965C700E24575 /* Sources */,
 				CCED84D2285965C700E24575 /* Frameworks */,
@@ -89,13 +89,13 @@
 			);
 			dependencies = (
 			);
-			name = OneWayExample;
+			name = Counter;
 			packageProductDependencies = (
 				CCED8509285967D000E24575 /* OneWay */,
 				CCED850C28596B6300E24575 /* CombineCocoa */,
 			);
 			productName = OneWayExample;
-			productReference = CCED84D5285965C700E24575 /* OneWayExample.app */;
+			productReference = CCED84D5285965C700E24575 /* Counter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CCED84D0285965C700E24575 /* Build configuration list for PBXProject "OneWayExample" */;
+			buildConfigurationList = CCED84D0285965C700E24575 /* Build configuration list for PBXProject "Counter" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CCED84D4285965C700E24575 /* OneWayExample */,
+				CCED84D4285965C700E24575 /* Counter */,
 			);
 		};
 /* End PBXProject section */
@@ -298,7 +298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneWayExample/Info.plist;
+				INFOPLIST_FILE = Counter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -309,7 +309,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.OneWayExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -325,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneWayExample/Info.plist;
+				INFOPLIST_FILE = Counter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -336,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.OneWayExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -347,7 +347,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CCED84D0285965C700E24575 /* Build configuration list for PBXProject "OneWayExample" */ = {
+		CCED84D0285965C700E24575 /* Build configuration list for PBXProject "Counter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCED84FD285965C800E24575 /* Debug */,
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCED84FF285965C800E24575 /* Build configuration list for PBXNativeTarget "OneWayExample" */ = {
+		CCED84FF285965C800E24575 /* Build configuration list for PBXNativeTarget "Counter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCED8500285965C800E24575 /* Debug */,
