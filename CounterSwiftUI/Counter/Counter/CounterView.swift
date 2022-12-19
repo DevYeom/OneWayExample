@@ -43,6 +43,14 @@ struct CounterView: View {
             }
             .disabled(way.state.isLoading)
             .overlay(way.state.isLoading ? progressView : nil)
+
+            Toggle(
+                "isLoading",
+                isOn: Binding<Bool>(
+                    get: { way.state.isLoading },
+                    set: { way.send(.setLoading($0)) }
+                )
+            )
         }
         .frame(width: 300, height: 200, alignment: .center)
     }
