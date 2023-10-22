@@ -5,6 +5,7 @@
 //  Created by DevYeom on 2022/06/15.
 //
 
+import OneWay
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -15,13 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let state = CounterViewWay.State(
-            number: .zero,
-            isLoading: false
-        )
         let globalState = GlobalState()
-        let way = CounterViewWay(initialState: state, globalState: globalState)
-        let viewController = CounterViewController(way: way, globalState: globalState)
+        let store = ViewStore(
+            reducer: CounterViewReducer(globalState: globalState),
+            state: .init(number: 0, isLoading: false)
+        )
+        let viewController = CounterViewController(
+            store: store,
+            globalState: globalState
+        )
 
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

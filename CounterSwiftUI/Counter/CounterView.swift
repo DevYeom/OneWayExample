@@ -5,50 +5,44 @@
 //  Created by DevYeom on 2022/06/27.
 //
 
+import OneWay
 import SwiftUI
 
 struct CounterView: View {
-//    if using less than iOS 14
-//    @ObservedObject private var way: CounterViewWay
-//
-//    init(way: CounterViewWay) {
-//        self.way = way
-//    }
+    @StateObject private var store: ViewStore<CounterViewReducer>
 
-    @StateObject private var way: CounterViewWay
-
-    init(way: CounterViewWay) {
-        self._way = StateObject(wrappedValue: way)
+    init(store: ViewStore<CounterViewReducer>) {
+        self._store = StateObject(wrappedValue: store)
     }
 
     var body: some View {
         VStack(spacing: 32) {
-            Text("\(way.state.number)")
+            Text("\(store.state.number)")
                 .font(.system(size: 24, weight: .bold))
                 .background(animationCircle)
 
             HStack {
                 Button("minus") {
-                    way.send(.decrement)
+                    store.send(.decrement)
                 }
                 Button("plus") {
-                    way.send(.increment)
+                    store.send(.increment)
                 }
                 Button("Twice") {
-                    way.send(.twice)
+                    store.send(.twice)
                 }
                 Button("Set 0") {
-                    way.send(.setNumber(0))
+                    store.send(.setNumber(0))
                 }
             }
-            .disabled(way.state.isLoading)
-            .overlay(way.state.isLoading ? progressView : nil)
+            .disabled(store.state.isLoading)
+            .overlay(store.state.isLoading ? progressView : nil)
 
             Toggle(
                 "isLoading",
                 isOn: Binding<Bool>(
-                    get: { way.state.isLoading },
-                    set: { way.send(.setLoading($0)) }
+                    get: { store.state.isLoading },
+                    set: { store.send(.setLoading($0)) }
                 )
             )
         }
@@ -63,10 +57,10 @@ struct CounterView: View {
         Circle()
             .fill(Color.green)
             .frame(
-                width: CGFloat(24 * max(way.state.number, 0)),
-                height: CGFloat(24 * max(way.state.number, 0))
+                width: CGFloat(24 * max(store.state.number, 0)),
+                height: CGFloat(24 * max(store.state.number, 0))
             )
-            .animation(.default, value: way.state.number)
+            .animation(.default, value: store.state.number)
             .transition(.opacity)
     }
 }
@@ -74,9 +68,9 @@ struct CounterView: View {
 struct CounterView_Previews: PreviewProvider {
     static var previews: some View {
         CounterView(
-            way: CounterViewWay(
-                initialState: .init(number: 0, isLoading: true),
-                globalState: GlobalState()
+            store: ViewStore(
+                reducer: CounterViewReducer(globalState: GlobalState()),
+                state: .init(number: 0, isLoading: false)
             )
         )
     }

@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CombineCocoa",
-        "repositoryURL": "https://github.com/CombineCommunity/CombineCocoa.git",
-        "state": {
-          "branch": null,
-          "revision": "4e262c2f9fb1cee1cb3be5717f7e6b55eb823971",
-          "version": "0.4.0"
-        }
-      },
-      {
-        "package": "OneWay",
-        "repositoryURL": "https://github.com/DevYeom/OneWay.git",
-        "state": {
-          "branch": null,
-          "revision": "bf7aaebc909ab3c2e71bc2d9da1ce5cf7546c7a6",
-          "version": "0.4.1"
-        }
+  "pins" : [
+    {
+      "identity" : "combinecocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CombineCommunity/CombineCocoa.git",
+      "state" : {
+        "revision" : "4e262c2f9fb1cee1cb3be5717f7e6b55eb823971",
+        "version" : "0.4.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "oneway",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DevYeom/OneWay.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e0de5bdb0e538abe345e67d0973e1ad6e60d407c"
+      }
+    }
+  ],
+  "version" : 2
 }

@@ -5,12 +5,13 @@
 //  Created by DevYeom on 2022/06/15.
 //
 
-import UIKit
 import Combine
 import CombineCocoa
+import OneWay
+import UIKit
 
 final class CounterViewController: UIViewController {
-    typealias Action = CounterViewWay.Action
+    typealias Action = CounterViewReducer.Action
 
     // MARK: - UI Components
 
@@ -23,17 +24,17 @@ final class CounterViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let way: CounterViewWay
+    private let store: ViewStore<CounterViewReducer>
     private let globalState: GlobalState
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Init
 
     init(
-        way: CounterViewWay,
+        store: ViewStore<CounterViewReducer>,
         globalState: GlobalState
     ) {
-        self.way = way
+        self.store = store
         self.globalState = globalState
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,7 +48,8 @@ final class CounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserInterface()
-        bind()
+        bindView()
+        Task { await bindStore() }
     }
 
     private func setUserInterface() {
@@ -90,25 +92,25 @@ final class CounterViewController: UIViewController {
         ])
     }
 
-    private func bind() {
+    private func bindView() {
         incrementButton.tapPublisher
             .map({ Action.increment })
             .sink { [weak self] action in
-                self?.way.send(action)
+                self?.store.send(action)
             }
             .store(in: &cancellables)
 
         decrementButton.tapPublisher
             .map({ Action.decrement })
             .sink { [weak self] action in
-                self?.way.send(action)
+                self?.store.send(action)
             }
             .store(in: &cancellables)
 
         twiceButton.tapPublisher
             .map({ Action.twice })
             .sink { [weak self] action in
-                self?.way.send(action)
+                self?.store.send(action)
             }
             .store(in: &cancellables)
 
@@ -117,25 +119,29 @@ final class CounterViewController: UIViewController {
                 self?.globalState.setNumber(.zero)
             }
             .store(in: &cancellables)
-
-        way.publisher.number
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] number in
-                self?.numberLabel.text = "\(number)"
-            }
-            .store(in: &cancellables)
-
-        way.publisher.isLoading
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] isLoading in
-                if isLoading {
-                    self?.activityIndicator.startAnimating()
-                } else {
-                    self?.activityIndicator.stopAnimating()
-                }
-            }
-            .store(in: &cancellables)
     }
 
+    private func bindStore() async {
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask { await self.bindNumber() }
+            group.addTask { await self.bindIsLoading() }
+        }
+    }
+
+    private func bindNumber() async {
+        for await number in store.states.number {
+            numberLabel.text = "\(number)"
+        }
+    }
+
+    private func bindIsLoading() async {
+        for await isLoading in store.states.isLoading {
+            if isLoading {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
 

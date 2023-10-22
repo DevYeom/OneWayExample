@@ -13,7 +13,7 @@
 		C3049775294C95D1003B20C5 /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3049774294C95D1003B20C5 /* CounterTests.swift */; };
 		C304977F294C95D1003B20C5 /* CounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304977E294C95D1003B20C5 /* CounterUITests.swift */; };
 		C3049781294C95D1003B20C5 /* CounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3049780294C95D1003B20C5 /* CounterUITestsLaunchTests.swift */; };
-		C304978F294C95EA003B20C5 /* CounterViewWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304978D294C95E9003B20C5 /* CounterViewWay.swift */; };
+		C304978F294C95EA003B20C5 /* CounterViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304978D294C95E9003B20C5 /* CounterViewReducer.swift */; };
 		C3049790294C95EA003B20C5 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C304978E294C95EA003B20C5 /* CounterView.swift */; };
 		C3049793294C9634003B20C5 /* OneWay in Frameworks */ = {isa = PBXBuildFile; productRef = C3049792294C9634003B20C5 /* OneWay */; };
 		C3049795294C965B003B20C5 /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3049794294C965B003B20C5 /* GlobalState.swift */; };
@@ -46,7 +46,7 @@
 		C304977A294C95D1003B20C5 /* CounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C304977E294C95D1003B20C5 /* CounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterUITests.swift; sourceTree = "<group>"; };
 		C3049780294C95D1003B20C5 /* CounterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C304978D294C95E9003B20C5 /* CounterViewWay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewWay.swift; sourceTree = "<group>"; };
+		C304978D294C95E9003B20C5 /* CounterViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewReducer.swift; sourceTree = "<group>"; };
 		C304978E294C95EA003B20C5 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		C3049794294C965B003B20C5 /* GlobalState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,7 @@
 			children = (
 				C3049763294C95D0003B20C5 /* CounterApp.swift */,
 				C304978E294C95EA003B20C5 /* CounterView.swift */,
-				C304978D294C95E9003B20C5 /* CounterViewWay.swift */,
+				C304978D294C95E9003B20C5 /* CounterViewReducer.swift */,
 				C3049794294C965B003B20C5 /* GlobalState.swift */,
 				C3049767294C95D1003B20C5 /* Assets.xcassets */,
 				C3049769294C95D1003B20C5 /* Preview Content */,
@@ -273,7 +273,7 @@
 			files = (
 				C3049795294C965B003B20C5 /* GlobalState.swift in Sources */,
 				C3049764294C95D0003B20C5 /* CounterApp.swift in Sources */,
-				C304978F294C95EA003B20C5 /* CounterViewWay.swift in Sources */,
+				C304978F294C95EA003B20C5 /* CounterViewReducer.swift in Sources */,
 				C3049790294C95EA003B20C5 /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,6 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevYeom.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -607,7 +609,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DevYeom/OneWay.git";
 			requirement = {
-				branch = 1.0.0;
+				branch = main;
 				kind = branch;
 			};
 		};

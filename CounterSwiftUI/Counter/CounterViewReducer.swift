@@ -5,13 +5,12 @@
 //  Created by DevYeom on 2022/06/27.
 //
 
-import SwiftUI
-import Combine
+import Foundation
 import OneWay
 
-final class CounterViewWay: Way<CounterViewWay.Action, CounterViewWay.State> {
+final class CounterViewReducer: Reducer {
 
-    enum Action {
+    enum Action: Sendable {
         case increment
         case decrement
         case twice
@@ -19,23 +18,20 @@ final class CounterViewWay: Way<CounterViewWay.Action, CounterViewWay.State> {
         case setLoading(Bool)
     }
 
-    struct State: Equatable {
+    struct State: Sendable & Equatable {
         var number: Int
         var isLoading: Bool
     }
 
     private let globalState: GlobalState
-    private var cancellables = Set<AnyCancellable>()
 
     init(
-        initialState: State,
         globalState: GlobalState
     ) {
         self.globalState = globalState
-        super.init(initialState: initialState)
     }
 
-    override func reduce(state: inout State, action: Action) -> SideWay<Action, Never> {
+    func reduce(state: inout State, action: Action) -> AnyEffect<Action> {
         switch action {
         case .increment:
             state.number += 1
@@ -46,9 +42,10 @@ final class CounterViewWay: Way<CounterViewWay.Action, CounterViewWay.State> {
         case .twice:
             return .concat(
                 .just(.setLoading(true)),
-                .just(.increment)
-                    .delay(for: .seconds(1), scheduler: DispatchQueue.main)
-                    .eraseToSideWay(),
+                .async {
+                    try! await Task.sleep(nanoseconds: NSEC_PER_SEC)
+                    return .increment
+                },
                 .just(.increment),
                 .just(.setLoading(false))
             )
@@ -61,11 +58,13 @@ final class CounterViewWay: Way<CounterViewWay.Action, CounterViewWay.State> {
         }
     }
 
-    override func bind() -> SideWay<Action, Never> {
+    func bind() -> AnyEffect<Action> {
         return .merge(
-            globalState.numberSubject
-                .map({ Action.setNumber($0) })
-                .eraseToSideWay()
+            .sequence { send in
+                for await number in self.globalState.numberSubject.values {
+                    send(Action.setNumber(number))
+                }
+            }
         )
     }
 }
