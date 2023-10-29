@@ -122,9 +122,25 @@ final class CounterViewController: UIViewController {
     }
 
     private func bindStore() async {
-        await withTaskGroup(of: Void.self) { group in
-            group.addTask { await self.bindNumber() }
-            group.addTask { await self.bindIsLoading() }
+        Task { [weak self] in
+            if let numbers = self?.store.states.number {
+                for await number in numbers {
+                    guard let self else { break }
+                    numberLabel.text = "\(number)"
+                }
+            }
+        }
+        Task { [weak self] in
+            if let isLoadings = self?.store.states.isLoading {
+                for await isLoading in isLoadings {
+                    guard let self else { break }
+                    if isLoading {
+                        activityIndicator.startAnimating()
+                    } else {
+                        activityIndicator.stopAnimating()
+                    }
+                }
+            }
         }
     }
 
@@ -144,4 +160,3 @@ final class CounterViewController: UIViewController {
         }
     }
 }
-

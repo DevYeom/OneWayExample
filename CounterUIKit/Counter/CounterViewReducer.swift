@@ -42,7 +42,7 @@ final class CounterViewReducer: Reducer {
         case .twice:
             return .concat(
                 .just(.setLoading(true)),
-                .async {
+                .single {
                     try! await Task.sleep(nanoseconds: NSEC_PER_SEC)
                     return .increment
                 },
@@ -59,9 +59,10 @@ final class CounterViewReducer: Reducer {
     }
 
     func bind() -> AnyEffect<Action> {
+        let numbers = globalState.numberSubject.values
         return .merge(
             .sequence { send in
-                for await number in self.globalState.numberSubject.values {
+                for await number in numbers {
                     send(Action.setNumber(number))
                 }
             }
