@@ -18,7 +18,7 @@ final class CounterViewReducer: Reducer {
         case setLoading(Bool)
     }
 
-    struct State: Sendable & Equatable {
+    struct State: Sendable, Equatable {
         var number: Int
         var isLoading: Bool
     }
@@ -36,9 +36,11 @@ final class CounterViewReducer: Reducer {
         case .increment:
             state.number += 1
             return .none
+
         case .decrement:
             state.number -= 1
             return .none
+
         case .twice:
             return .concat(
                 .just(.setLoading(true)),
@@ -49,9 +51,11 @@ final class CounterViewReducer: Reducer {
                 .just(.increment),
                 .just(.setLoading(false))
             )
+
         case .setNumber(let number):
             state.number = number
             return .none
+
         case .setLoading(let isLoading):
             state.isLoading = isLoading
             return .none
