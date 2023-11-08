@@ -9,7 +9,6 @@ import Foundation
 import OneWay
 
 final class CounterViewReducer: Reducer {
-
     enum Action: Sendable {
         case increment
         case decrement

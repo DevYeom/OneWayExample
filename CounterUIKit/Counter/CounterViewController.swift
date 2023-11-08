@@ -143,20 +143,4 @@ final class CounterViewController: UIViewController {
             }
         }
     }
-
-    private func bindNumber() async {
-        for await number in store.states.number {
-            numberLabel.text = "\(number)"
-        }
-    }
-
-    private func bindIsLoading() async {
-        for await isLoading in store.states.isLoading {
-            if isLoading {
-                activityIndicator.startAnimating()
-            } else {
-                activityIndicator.stopAnimating()
-            }
-        }
-    }
 }
