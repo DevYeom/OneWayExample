@@ -42,7 +42,7 @@ struct CounterView: View {
                 "isLoading",
                 isOn: Binding<Bool>(
                     get: { store.state.isLoading },
-                    set: { store.send(.setLoading($0)) }
+                    set: { store.send(.setIsLoading($0)) }
                 )
             )
         }

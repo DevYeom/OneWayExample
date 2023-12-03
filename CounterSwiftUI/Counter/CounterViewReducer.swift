@@ -8,13 +8,13 @@
 import Foundation
 import OneWay
 
-final class CounterViewReducer: Reducer {
+struct CounterViewReducer: Reducer {
     enum Action: Sendable {
         case increment
         case decrement
         case twice
         case setNumber(Int)
-        case setLoading(Bool)
+        case setIsLoading(Bool)
     }
 
     struct State: Sendable, Equatable {
@@ -42,20 +42,20 @@ final class CounterViewReducer: Reducer {
 
         case .twice:
             return .concat(
-                .just(.setLoading(true)),
+                .just(.setIsLoading(true)),
                 .single {
                     try! await Task.sleep(nanoseconds: NSEC_PER_SEC)
                     return .increment
                 },
                 .just(.increment),
-                .just(.setLoading(false))
+                .just(.setIsLoading(false))
             )
 
         case .setNumber(let number):
             state.number = number
             return .none
 
-        case .setLoading(let isLoading):
+        case .setIsLoading(let isLoading):
             state.isLoading = isLoading
             return .none
         }
