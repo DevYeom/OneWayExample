@@ -9,11 +9,10 @@ import OneWay
 import SwiftUI
 
 struct CounterView: View {
-    @StateObject private var store: ViewStore<CounterViewReducer>
-
-    init(store: ViewStore<CounterViewReducer>) {
-        self._store = StateObject(wrappedValue: store)
-    }
+    @StateObject private var store = ViewStore(
+        reducer: CounterViewReducer(globalState: GlobalState()),
+        state: .init(number: 0, isLoading: false)
+    )
 
     var body: some View {
         VStack(spacing: 32) {
@@ -67,11 +66,6 @@ struct CounterView: View {
 
 struct CounterView_Previews: PreviewProvider {
     static var previews: some View {
-        CounterView(
-            store: ViewStore(
-                reducer: CounterViewReducer(globalState: GlobalState()),
-                state: .init(number: 0, isLoading: false)
-            )
-        )
+        CounterView()
     }
 }

@@ -12,12 +12,7 @@ import SwiftUI
 struct CounterApp: App {
     var body: some Scene {
         WindowGroup {
-            CounterView(
-                store: ViewStore(
-                    reducer: CounterViewReducer(globalState: GlobalState()),
-                    state: .init(number: 0, isLoading: false)
-                )
-            )
+            CounterView()
         }
     }
 }
