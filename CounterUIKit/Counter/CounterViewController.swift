@@ -49,7 +49,9 @@ final class CounterViewController: UIViewController {
         super.viewDidLoad()
         setUserInterface()
         bindView()
-        Task { await bindStore() }
+        Task { @MainActor in
+            await bindStore()
+        }
     }
 
     private func setUserInterface() {
@@ -122,7 +124,7 @@ final class CounterViewController: UIViewController {
     }
 
     private func bindStore() async {
-        Task { [weak self] in
+        Task { @MainActor [weak self]  in
             if let numbers = self?.store.states.number {
                 for await number in numbers {
                     guard let self else { break }
@@ -130,7 +132,7 @@ final class CounterViewController: UIViewController {
                 }
             }
         }
-        Task { [weak self] in
+        Task { @MainActor [weak self] in
             if let isLoadings = self?.store.states.isLoading {
                 for await isLoading in isLoadings {
                     guard let self else { break }
