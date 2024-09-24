@@ -374,8 +374,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DevYeom/OneWay.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		CCED850B28596B6300E24575 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
