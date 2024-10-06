@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DevYeom/OneWay.git",
       "state" : {
-        "revision" : "2ba406b0bfd747a1bc13bb8603f4f10f5d059881",
-        "version" : "2.8.0"
+        "revision" : "3cdbc766b808fab915d93a73cb974e97ce247a3f",
+        "version" : "2.9.0"
       }
     }
   ],

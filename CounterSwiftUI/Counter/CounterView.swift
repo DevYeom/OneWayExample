@@ -11,7 +11,7 @@ import SwiftUI
 struct CounterView: View {
     @StateObject private var store = ViewStore(
         reducer: CounterViewReducer(globalState: GlobalState()),
-        state: .init(number: 0, isLoading: false)
+        state: CounterViewReducer.State(number: 0, isLoading: false)
     )
 
     var body: some View {
@@ -39,10 +39,7 @@ struct CounterView: View {
 
             Toggle(
                 "isLoading",
-                isOn: Binding<Bool>(
-                    get: { store.state.isLoading },
-                    set: { store.send(.setIsLoading($0)) }
-                )
+                isOn: store.binding(\.isLoading, send: { .setIsLoading($0) })
             )
         }
         .frame(width: 300, height: 200, alignment: .center)

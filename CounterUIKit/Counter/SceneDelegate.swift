@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let globalState = GlobalState()
         let store = ViewStore(
             reducer: CounterViewReducer(globalState: globalState),
-            state: .init(number: 0, isLoading: false)
+            state: CounterViewReducer.State(number: 0, isLoading: false)
         )
         let viewController = CounterViewController(
             store: store,
