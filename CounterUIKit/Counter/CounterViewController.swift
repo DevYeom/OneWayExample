@@ -24,14 +24,14 @@ final class CounterViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let store: ViewStore<CounterViewReducer>
+    private let store: ViewStore<CounterViewReducer, ContinuousClock>
     private let globalState: GlobalState
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Init
 
     init(
-        store: ViewStore<CounterViewReducer>,
+        store: ViewStore<CounterViewReducer, ContinuousClock>,
         globalState: GlobalState
     ) {
         self.store = store
